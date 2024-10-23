@@ -1,0 +1,1 @@
+# Resolvedor-SUDOKU-computaci-n-Paralela
