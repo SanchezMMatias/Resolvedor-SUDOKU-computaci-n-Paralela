@@ -1,6 +1,6 @@
 #include "Node.hpp"
 
-// Constructor por defecto: los punteros de un nodo se apuntan a sí mismos
+// Constructor
 DancingNode::DancingNode()
 {
 	left = this;
@@ -95,8 +95,8 @@ void ColumnNode::uncover()
 		for (DancingNode* j = i->left; j != i; j = j->left) // Itera sobre los nodos de izquierda a derecha
 		{
 			j->column->size++; // Aumenta el tamaño de la columna correspondiente
-			j->reinsertTopBottom(); // Reinsere el nodo en la lista arriba-abajo
+			j->reinsertTopBottom(); // Reinserta el nodo en la lista arriba-abajo
 		}
 	}
-	reinsertLeftRight(); // Reinsere el nodo columna en la lista izquierda-derecha
+	reinsertLeftRight(); // Reinserta el nodo columna en la lista izquierda-derecha
 }
