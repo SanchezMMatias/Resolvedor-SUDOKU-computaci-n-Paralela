@@ -1,0 +1,61 @@
+# Project: Resolvedor sudoku paralela
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = SudokuBoard.o SudokuSolver.o SudokuSolver_SequentialBacktracking.o SudokuTest.o SudokuSolver_SequentialBruteForce.o SudokuSolver_ParallelBruteForce.o SudokuBoardDeque.o SudokuSolver_SequentialDLX.o Node.o SudokuSolver_ParallelDLX.o SudokuSolver_SequentialForwardChecking.o Main.o
+LINKOBJ  = SudokuBoard.o SudokuSolver.o SudokuSolver_SequentialBacktracking.o SudokuTest.o SudokuSolver_SequentialBruteForce.o SudokuSolver_ParallelBruteForce.o SudokuBoardDeque.o SudokuSolver_SequentialDLX.o Node.o SudokuSolver_ParallelDLX.o SudokuSolver_SequentialForwardChecking.o Main.o
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc                                                                                                                -fopenmp
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = "Resolvedor sudoku paralela.exe"
+CXXFLAGS = $(CXXINCS) -fopenmp -std=c++17
+CFLAGS   = $(INCS) -fopenmp
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+SudokuBoard.o: SudokuBoard.cpp
+	$(CPP) -c SudokuBoard.cpp -o SudokuBoard.o $(CXXFLAGS)
+
+SudokuSolver.o: SudokuSolver.cpp
+	$(CPP) -c SudokuSolver.cpp -o SudokuSolver.o $(CXXFLAGS)
+
+SudokuSolver_SequentialBacktracking.o: SudokuSolver_SequentialBacktracking.cpp
+	$(CPP) -c SudokuSolver_SequentialBacktracking.cpp -o SudokuSolver_SequentialBacktracking.o $(CXXFLAGS)
+
+SudokuTest.o: SudokuTest.cpp
+	$(CPP) -c SudokuTest.cpp -o SudokuTest.o $(CXXFLAGS)
+
+SudokuSolver_SequentialBruteForce.o: SudokuSolver_SequentialBruteForce.cpp
+	$(CPP) -c SudokuSolver_SequentialBruteForce.cpp -o SudokuSolver_SequentialBruteForce.o $(CXXFLAGS)
+
+SudokuSolver_ParallelBruteForce.o: SudokuSolver_ParallelBruteForce.cpp
+	$(CPP) -c SudokuSolver_ParallelBruteForce.cpp -o SudokuSolver_ParallelBruteForce.o $(CXXFLAGS)
+
+SudokuBoardDeque.o: SudokuBoardDeque.cpp
+	$(CPP) -c SudokuBoardDeque.cpp -o SudokuBoardDeque.o $(CXXFLAGS)
+
+SudokuSolver_SequentialDLX.o: SudokuSolver_SequentialDLX.cpp
+	$(CPP) -c SudokuSolver_SequentialDLX.cpp -o SudokuSolver_SequentialDLX.o $(CXXFLAGS)
+
+Node.o: Node.cpp
+	$(CPP) -c Node.cpp -o Node.o $(CXXFLAGS)
+
+SudokuSolver_ParallelDLX.o: SudokuSolver_ParallelDLX.cpp
+	$(CPP) -c SudokuSolver_ParallelDLX.cpp -o SudokuSolver_ParallelDLX.o $(CXXFLAGS)
+
+SudokuSolver_SequentialForwardChecking.o: SudokuSolver_SequentialForwardChecking.cpp
+	$(CPP) -c SudokuSolver_SequentialForwardChecking.cpp -o SudokuSolver_SequentialForwardChecking.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
