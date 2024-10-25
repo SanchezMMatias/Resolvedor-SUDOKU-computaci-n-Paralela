@@ -1,50 +1,46 @@
 #ifndef SUDOKUBOARDDEQUE_HPP
 #define SUDOKUBOARDDEQUE_HPP
 
+#include <iostream>     
+#include <iterator>     
+#include <deque>        
+#include "SudokuBoard.hpp"  
 
-#include <iostream>
-#include <iterator>
-#include <deque>
-#include "SudokuBoard.hpp"
-
-
-class SudokuBoardDeque
-{
+class SudokuBoardDeque {
 public:
-    SudokuBoardDeque() = default;
+    SudokuBoardDeque() = default;  // Constructor por defecto
 
-	// copy constructor of class SudokuBoardDeque: construct a new SudokuBoardDeque by saving the board as its first element
+    // Constructor de copia de la clase SudokuBoardDeque: construye un nuevo SudokuBoardDeque guardando el tablero como su primer elemento
     SudokuBoardDeque(const SudokuBoard& board);
 
-    std::deque<SudokuBoard> boardDeque;
+    std::deque<SudokuBoard> boardDeque;  // Deque que almacena tableros de Sudoku
 
-    // gets the total number of boards in the deque
+    // Obtiene el número total de tableros en el deque
     int size() const;
 
-    // gets the first board in the deque
+    // Obtiene el primer tablero en el deque
     SudokuBoard& front();
 
-    // gets the last board in the deque
+    // Obtiene el último tablero en el deque
     SudokuBoard& back();
 
-    // gets the i-th board in the deque
+    // Obtiene el tablero en la posición i del deque
     SudokuBoard& operator[] (int i);
 
-    // removes the first board in the deque and release memory
+    // Elimina el primer tablero en el deque y libera la memoria
     void pop_front();
 
-    // removes the last board in the deque and release memory
+    // Elimina el último tablero en el deque y libera la memoria
     void pop_back();
 
-    // pushes a board to the front of the deque
+    // Empuja un tablero al frente del deque
     void push_front(SudokuBoard& board);
 
-    // pushes a board to the end of the deque
+    // Empuja un tablero al final del deque
     void push_back(SudokuBoard& board);
 
-    // destructor of class SudokuBoardDeque: delete the board inside the deque one by one
+    // Destructor de la clase SudokuBoardDeque: elimina los tableros dentro del deque uno por uno
     virtual ~SudokuBoardDeque();
 };
 
-
-#endif   // SUDOKUBOARDDEQUE_HPP
+#endif // SUDOKUBOARDDEQUE_HPP
