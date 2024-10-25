@@ -6,7 +6,7 @@ SudokuSolver_SequentialBruteForce::SudokuSolver_SequentialBruteForce(SudokuBoard
 : SudokuSolver(board){
     _mode = MODES::SEQUENTIAL_BRUTEFORCE;
     if (print_message){
-        std::cout << "\nSequential Sudoku solver using brute force algorithm starts, please wait...\n";
+        std::cout << "\n Resolviendo sudoku usando el algoritmo secuencial fuerza bruta, porfavor espere mientras se ejecuta...\n";
     }
 }
 
