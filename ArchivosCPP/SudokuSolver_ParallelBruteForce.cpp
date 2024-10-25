@@ -12,7 +12,7 @@ SudokuSolver_ParallelBruteForce::SudokuSolver_ParallelBruteForce(SudokuBoard& bo
 	_mode = MODES::PARALLEL_BRUTEFORCE; // Establece el modo a fuerza bruta paralela
 	if (print_message) // Si se debe imprimir un mensaje
 	{
-		std::cout << "\n" << "Parallel Sudoku solver using brute force algorithm starts, please wait..." << "\n"; // Mensaje informativo
+		std::cout << "\n" << "Resolviendo el sudoku usando algoritmo fuerza bruta en paralelo porfavor espere mientras se ejecuta..." << "\n"; // Mensaje informativo
 	}
 }
 
