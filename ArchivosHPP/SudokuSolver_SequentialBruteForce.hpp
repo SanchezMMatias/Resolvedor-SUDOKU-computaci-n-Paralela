@@ -1,20 +1,20 @@
 #ifndef SUDOKUSOLVER_SEQUENTIALBRUTEFORCE_HPP
 #define SUDOKUSOLVER_SEQUENTIALBRUTEFORCE_HPP
 
+#include "SudokuBoard.hpp" 
+#include "SudokuSolver.hpp" 
 
-#include "SudokuBoard.hpp"
-#include "SudokuSolver.hpp"
-
-
-class SudokuSolver_SequentialBruteForce : public SudokuSolver
-{
+// Clase SudokuSolver_SequentialBruteForce que hereda de SudokuSolver
+class SudokuSolver_SequentialBruteForce : public SudokuSolver {
 public:
-	SudokuSolver_SequentialBruteForce(SudokuBoard& board, bool print_message=true);
+    // Constructor que inicializa el solucionador de Sudoku con el algoritmo de fuerza bruta secuencial
+    SudokuSolver_SequentialBruteForce(SudokuBoard& board, bool print_message=true);
 
-	// Solves the given Sudoku board using sequential brute force algorithm
-    virtual void solve() override {	solve_kernel(0, 0); }
-	void solve_kernel(int row, int col);
+    // Resuelve el tablero de Sudoku dado usando el algoritmo de fuerza bruta secuencial
+    virtual void solve() override { solve_kernel(0, 0); }
+
+    // Función kernel que implementa el algoritmo de fuerza bruta secuencial
+    void solve_kernel(int row, int col);
 };
 
-
-#endif   // SUDOKUSOLVER_SEQUENTIALBRUTEFORCE_HPP
+#endif // SUDOKUSOLVER_SEQUENTIALBRUTEFORCE_HPP
