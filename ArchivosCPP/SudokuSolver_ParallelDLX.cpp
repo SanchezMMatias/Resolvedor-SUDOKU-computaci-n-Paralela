@@ -7,7 +7,7 @@ SudokuSolver_ParallelDLX::SudokuSolver_ParallelDLX(SudokuBoard& board, bool prin
 : SudokuSolver(board){
     _mode = MODES::PARALLEL_DANCINGLINKS;
     if (print_message){
-        std::cout << "\nParallel Sudoku solver using dancing links algorithm starts, please wait...\n";
+        std::cout << "\n Iniciando el algoritmo DLX paralelo porfavor espere mientras se ejecuta...\n";
     }
     board.createCoverMatrix(_coverMatrix);           // Crear la matriz de cobertura
     board.convertToCoverMatrix(_coverMatrix);        // Convertir el tablero a matriz de cobertura
