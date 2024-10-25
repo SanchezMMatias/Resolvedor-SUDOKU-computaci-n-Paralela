@@ -6,7 +6,7 @@ SudokuSolver_SequentialBacktracking::SudokuSolver_SequentialBacktracking(SudokuB
 : SudokuSolver(board){
     _mode = MODES::SEQUENTIAL_BACKTRACKING;
     if (print_message){
-        std::cout << "\nSequential Sudoku solver using backtracking algorithm starts, please wait...\n";
+        std::cout << "\n Resolviendo el sudoku usando el algoritmo backtraking secuencial, porfavor espere mientras se ejecuta...\n";
     }
 }
 
