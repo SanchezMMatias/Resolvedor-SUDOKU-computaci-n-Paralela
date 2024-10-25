@@ -1,44 +1,42 @@
 #ifndef SUDOKUSOLVER_SEQUENTIALFORWARDCHECKING_HPP
 #define SUDOKUSOLVER_SEQUENTIALFORWARDCHECKING_HPP
 
+#include "SudokuBoard.hpp"  
+#include "SudokuSolver.hpp"  
 
-#include "SudokuBoard.hpp"
-#include "SudokuSolver.hpp"
-
-
-// +++ The implementation of this algorithm is still under construction. +++
-// http://ktiml.mff.cuni.cz/~bartak/constraints/propagation.html
-class SudokuSolver_SequentialForwardChecking : public SudokuSolver
-{
+class SudokuSolver_SequentialForwardChecking : public SudokuSolver {
 private:
-	StateMatrix _stateMatrix;
+    StateMatrix _stateMatrix;  // Matriz de estado para el Sudoku
 
 public:
+    // Constructor que inicializa el solucionador de Sudoku con forward checking secuencial
     SudokuSolver_SequentialForwardChecking(SudokuBoard& board, bool print_message=true);
 
-	SudokuBoard convertToSudokuGrid(StateMatrix& stateMatrix);
+    // Convierte la matriz de estado al equivalente del tablero de Sudoku resuelto
+    SudokuBoard convertToSudokuGrid(StateMatrix& stateMatrix);
 
-	// Solves the given Sudoku board using sequential forward checking algorithm
+    // Resuelve el tablero de Sudoku dado usando el algoritmo de forward checking secuencial
     virtual void solve() override { solve_kernel(_stateMatrix); }
+
+    // Función kernel que implementa el algoritmo de forward checking secuencial
     void solve_kernel(StateMatrix& stateMatrix);
 
-	/*
-     * Propagate one step.
-     *
-     * @return: boolean value that indicates whether the propagation changed the state.
+    /* 
+     * Propaga un paso.
+     * 
+     * @return: valor booleano que indica si la propagación cambió el estado.
      */
-	bool propagate_step(StateMatrix& stateMatrix);
+    bool propagate_step(StateMatrix& stateMatrix);
 
-	/*
-     * Propagate until we don't change the state anymore.
+    /* 
+     * Propaga hasta que no cambiemos más el estado.
      */
-	void propagate(StateMatrix& stateMatrix);
-	
-	/*
-     * Check if we have reached the solution.
+    void propagate(StateMatrix& stateMatrix);
+
+    /* 
+     * Verifica si hemos alcanzado la solución.
      */
-	bool done(StateMatrix& stateMatrix);
+    bool done(StateMatrix& stateMatrix);
 };
 
-
-#endif   // SUDOKUSOLVER_SEQUENTIALFORWARDCHECKING_HPP
+#endif // SUDOKUSOLVER_SEQUENTIALFORWARDCHECKING_HPP
